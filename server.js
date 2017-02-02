@@ -8,7 +8,6 @@ const methodOverride = require('method-override')
 const morgan = require('morgan')
 const path = require('path')
 const app = express()
-
 // CONFIG
 require('./db/config')
 app.use(morgan('dev'))
@@ -25,6 +24,24 @@ app.use('/', require('./routes/index'))
 app.use('/example', require('./routes/example'))
 app.use(require('./routes/error'))
 
+const User = require('./models/user.js');
+
+// use the user Schema in models folders
+const user2 = new User({
+  username: 'bkmorgan65',
+  posts: [{title: 'i li', content: 'holllla son!'}]
+})
+user2.save();
+console.log('user2 now =  ',user2);
+
+const user4 = new User({
+  username: 'Dakotah',
+  posts: [{title: 'Im here to code',
+          content: 'This is my post its reallly cool'}]
+})
+user4.save();
+console.log('user4 =', user4)
+// user2.posts.push()
 const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`Listening on ${port}`)
