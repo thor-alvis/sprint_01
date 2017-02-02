@@ -1,1 +1,41 @@
-<h1>Index</h1>
+
+<h1>{{title}}</h1>
+
+<section class="/">
+  <h3>Blog Comment</h3>
+  <form action="/comment" method="post">
+  <div class="input">
+    {{!-- user name--}}
+    <label for="user">User Name</label>
+    <input type="text" placeholder="User Name" id="user" name="username">
+  </div>
+
+    <button id="postComment" type="submit">Add Comment</button>
+ </form>
+ {{!-- when user visits '/', user see a button called 'Add Comment' --}}
+
+</section>
+
+<br>
+<br>
+
+<section class="viewData" id="viewComments">
+  <form action="/comments" method="get">
+    <button id="viewComment">View Comments</button>
+    </br>
+  </form>
+
+  <div class="comments">
+      {{# each items}}
+          <article>
+          <a href="/comments">Update</a>
+             <ol>
+                <li>Username: {{ this.user}}</li>
+            </ol>
+
+          </article>
+          <hr>
+      {{/each}}
+  </div>
+
+</section>
