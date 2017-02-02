@@ -18,30 +18,36 @@ app.use(methodOverride('_method'))
 app.use(session({secret: 'keyboard cat', resave: false, saveUninitialized: true}))
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main', layoutsDir: path.join(__dirname, 'views/layouts/')}))
 app.set('view engine', 'hbs')
-
 // ROUTES
 app.use('/', require('./routes/index'))
 app.use('/example', require('./routes/example'))
 app.use(require('./routes/error'))
-
+// use the user Schema in models folders
 const User = require('./models/user.js');
 
-// use the user Schema in models folders
 const user2 = new User({
   username: 'bkmorgan65',
-  posts: [{title: 'i li', content: 'holllla son!'}]
+  posts: [{created: Date (),
+           title: 'i li',
+           content: 'holllla son!',
+           likes: 7
+         }]
 })
 user2.save();
 console.log('user2 now =  ',user2);
 
-const user4 = new User({
-  username: 'Dakotah',
-  posts: [{title: 'Im here to code',
-          content: 'This is my post its reallly cool'}]
-})
-user4.save();
-console.log('user4 =', user4)
-// user2.posts.push()
+
+// const user4 = new User({
+//   username: 'Dakotah',
+//   posts: [{title: 'Im here to code',
+//           content: 'This is my post its reallly cool'}]
+// })
+// user4.save();
+// console.log('user4 =', user4);
+
+
+
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`Listening on ${port}`)

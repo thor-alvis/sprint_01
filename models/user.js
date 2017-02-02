@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var PostSchema = new mongoose.Schema({
-   // created: Date,
+   created: Date,
    title: String,
-   content: String
-   // likes: Number
+   content: String,
+   likes: Number
 });
 
 
