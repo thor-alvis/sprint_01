@@ -1,7 +1,5 @@
-<h1>Welcome to your User Page</h1>
+<h1>Aloha, {{user.login}}!</h1>
 
-{{!-- DISPLAY USERNAME --}}
-<div>user: {{user.login}}</div>
 <div><img src='{{user.avatar_url}}'></div>
-{{!-- DISPLAY LINK TO LOGOUT OF SESSION --}}
-<a href='/auth/logout'>Logout</a>
+
+<a href='/logout'>Logout</a>
