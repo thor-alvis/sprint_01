@@ -2,12 +2,6 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 
-// router.get('/', (req, res, next) => {
-//   const user = req.session.user;
-//   console.log('user is ', user);
-//   res.render('user', {user});
-// });
-
 router.get('/', (req, res, next) => {
   const access_token = req.session.access_token;
   console.log('access token is getting passed through', access_token);
@@ -24,6 +18,10 @@ router.get('/', (req, res, next) => {
   request(options, (err, response, body) => {
     const user = JSON.parse(body);
     console.log('here is the user data ', user);
+    // store user in session
+    // redirect to /blog/username
+    const username = user.login
+    console.log('username is =>', user.login)
     res.render('user', {user: user});
   });
 });

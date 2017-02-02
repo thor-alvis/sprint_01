@@ -23,8 +23,8 @@ app.set('view engine', 'hbs')
 
 // ROUTES
 app.use('/', require('./routes/index'));
-// app.use('/authorize', require('./routes/authorize'));
-app.use('/user', require('./routes/user'));
+app.use('/authorize', require('./routes/authorize'));
+app.use('/blog', require('./routes/blog'));
 
 // app.use('/example', require('./routes/example'))
 // app.use(require('./routes/error'))
