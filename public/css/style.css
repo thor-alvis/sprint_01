@@ -1,1 +1,9 @@
-/**/
+#newPost {
+  margin: 0 auto;
+  height: 300px;
+  padding: 50px;
+};
+
+form {
+  display: inline-block;
+};
