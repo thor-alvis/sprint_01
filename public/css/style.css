@@ -1,1 +1,12 @@
-/**/
+#title {
+  padding-left: 17px;
+};
+
+#newPost {
+  padding: 50px;
+  height: 200px;
+};
+
+.userPost{
+  background: black;
+}
