@@ -14,11 +14,16 @@ app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(favicon(path.join(__dirname, 'public/favicon.ico')))
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 app.use(session({secret: 'keyboard cat', resave: false, saveUninitialized: true}))
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'main', layoutsDir: path.join(__dirname, 'views/layouts/')}))
 app.set('view engine', 'hbs')
 // ROUTES
+
+// app.use('/authorize', require('./routes/authorize'));
+app.use('/blog', require('./routes/blog'));
+// app.use(require('./routes/error'))
 app.use('/', require('./routes/index'))
 app.use('/example', require('./routes/example'))
 app.use(require('./routes/error'))
@@ -46,7 +51,6 @@ const user4 = new User({
 })
 user4.save();
 console.log('user4 =', user4);
-
 
 
 
