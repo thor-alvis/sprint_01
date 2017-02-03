@@ -8,7 +8,7 @@ router.get('/:user', (req, res, next) => {
   const user = req.session.user;
   // username = req.params.user.login
   console.log('+++RENDERING THE USER PAGE+++')
-  res.render('user', {user: user});
+  res.render('userBlog', {user: user});
 })
 
 

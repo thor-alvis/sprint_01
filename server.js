@@ -25,32 +25,32 @@ app.set('view engine', 'hbs')
 app.use('/blog', require('./routes/blog'));
 // app.use(require('./routes/error'))
 app.use('/', require('./routes/index'))
-app.use('/example', require('./routes/example'))
+// app.use('/example', require('./routes/example'))
 app.use(require('./routes/error'))
 // use the user Schema in models folders
 const User = require('./models/user.js');
 
-const user2 = new User({
-  username: 'bklklklk',
-  posts: [{created:  ('05-03-2018'),
-           title: 'i li',
-           content: 'holllla son!',
-           // likes: 7
-         }]
-})
-user2.save();
-console.log('user2 now =  ',user2);
+// const user2 = new User({
+//   username: 'bklklklk',
+//   posts: [{created:  ('05-03-2018'),
+//            title: 'i li',
+//            content: 'holllla son!',
+//            // likes: 7
+//          }]
+// })
+// user2.save();
+// console.log('user2 now =  ',user2);
 
 
-const user4 = new User({
-  username: 'sdsjk',
-  posts: [{created: Date(),
-           title: 'Im here to code',
-           content: 'This is my post its reallly cool'
-        }]
-})
-user4.save();
-console.log('user4 =', user4);
+// const user4 = new User({
+//   username: 'sdsjk',
+//   posts: [{created: Date(),
+//            title: 'Im here to code',
+//            content: 'This is my post its reallly cool'
+//         }]
+// })
+// user4.save();
+// console.log('user4 =', user4);
 
 
 
