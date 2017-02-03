@@ -72,7 +72,7 @@ router.get('/auth/me', (req, res, next) => {
     const blogId = `/blog/${username}`
     return res.redirect(blogId)
   })
->>>>>>> 589354f6423e7f8e723e4df50f9d9a19eb573109
+// >>>>>>> 589354f6423e7f8e723e4df50f9d9a19eb573109
 })
 
   // show all blogs
@@ -94,7 +94,7 @@ router.post('/blogs', (req,res) => {
            }
         }
 
-
+  console.log(item);
   var blog = new User(item)
   blog.save();
   res.redirect('/blogs');
