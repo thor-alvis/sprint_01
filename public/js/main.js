@@ -17,8 +17,12 @@ $(document).ready(function(){
     console.log($data);
     $.post('/blogs', {data: $data}, function(res){
       console.log('res =', res);
-      const $addToPage = `<div class="userPost">${$title}<br>${$content}</div>
-      <div><button class="comment">comment</button><button class="delete">delete</button><button class="like">like</button></div>`;
+      const $addToPage = `<div class="post-preview">
+              <h2 class="post-title">
+                  ${$title}
+              </h2>
+          <a href=''>${$content}</a>
+      </div>`;
       console.log($addToPage);
       $('#allPosts').append($addToPage);
       e.currentTarget.value = " ";
