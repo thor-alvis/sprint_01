@@ -7,12 +7,27 @@ router.get('/', (req, res, next) => {
 });
 
  // show all blogs
-router.get('/blogs', function (req, res, next) {
-  res.send('show all');
+router.get('/blogs', (req, res) => {
+  res.render('index');
 });
 
 // make a new blog
-router.post('/blogs', (req,res)=> {
+router.post('/blogs', (req,res) => {
+  var username = req.body.data.username;
+  var title = req.body.data.posts.title;
+  var content = req.body.data.posts.content;
+  var item = {
+          username: username,
+          posts: {
+            title: title,
+            content: content
+           }
+        }
+
+
+  var blog = new User(item)
+  blog.save();
+  res.redirect('/blogs');
 });
 
 
@@ -20,4 +35,4 @@ router.post('/blogs', (req,res)=> {
 
 
 
-module.exports = router;
+module.exports = router

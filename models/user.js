@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var PostSchema = new mongoose.Schema({
    created: {type: Date, default: Date.now},
    title: String,
-   content: String,
+   content: String
    // likes: Number
 });
 
