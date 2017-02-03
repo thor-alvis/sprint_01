@@ -1,7 +1,12 @@
+
+
+#title {
+  padding-left: 17px;
+};
+
 #newPost {
-  margin: 0 auto;
-  height: 300px;
   padding: 50px;
+  height: 200px;
 };
 
 .userPost{
