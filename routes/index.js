@@ -1,14 +1,16 @@
-console.log('hello from index.js')
 
+console.log('hello from index.js')
+const request = require('request');
 const express = require('express');
 const router = express.Router();
-const request = require('request');
+const User = require('../models/user');
+
 
 router.get('/', (req, res, next) => {
   res.render('index', {title: 'Home'})
 });
 
-// ++++++++++++++++++                      ++++++++++++++++++ //
+ // ++++++++++++++++++                      ++++++++++++++++++ //
 // ++++++++++++++++++ OAUTH ROUTING BEGINs ++++++++++++++++++ //
 // ++++++++++++++++++                      ++++++++++++++++++ //
 
@@ -49,6 +51,31 @@ router.get('/authorize', (req, res, next) => {
     res.redirect('/blog/me')
   })
 })
+  
+  // show all blogs
+router.get('/blogs', (req, res) => {
+  res.render('index');
+});
+
+// make a new blog
+router.post('/blogs', (req,res) => {
+  var username = req.body.data.username;
+  var title = req.body.data.posts.title;
+  var content = req.body.data.posts.content;
+  var item = {
+          username: username,
+          posts: {
+            date: Date(),
+            title: title,
+            content: content
+           }
+        }
+
+
+  var blog = new User(item)
+  blog.save();
+  res.redirect('/blogs');
+});
 
 // ADD LOGOUT ROUTE HERE
 router.get('/logout', (req, res) => {
