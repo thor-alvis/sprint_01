@@ -19,7 +19,13 @@
 </div> -->
 
 <div class="container">
+  <h1>Aloha, {{user.login}}!</h1>
+  <div><img src='{{user.avatar_url}}'></div>
+  <a href='/logout'>Logout</a>
   <h1>new post</h1>
+  <div class="row">
+    <input class="col-lg-6" id="title" placeholder="Title">
+  </div>
   <div class="row">
     <textarea class="col-lg-6" id="newPost" placeholder="New Post!"></textarea>
   </div>
