@@ -1,3 +1,5 @@
+console.log('hello from index.js')
+
 const express = require('express');
 const router = express.Router();
 const request = require('request');
@@ -25,7 +27,7 @@ router.get('/login', (req, res, next) => {
 
 router.get('/authorize', (req, res, next) => {
   const code = req.query.code;
-  // console.log('get /authorize - code =>', code);
+  console.log('get /authorize - code =>', code);
   const data = {
     client_id: client_id,
     client_secret: client_secret,
@@ -33,18 +35,18 @@ router.get('/authorize', (req, res, next) => {
     redirect_uri: redirect_uri,
     state: req.query.state
   }
-  // console.log('get /authorize - data =>', data);
+  console.log('get /authorize - data =>', data);
   const options = {
     method: 'POST',
     url: 'https://github.com/login/oauth/access_token',
     headers: { 'Accept' : 'application/json'},
     json: data
   }
-  // console.log('get /authorize - options =>', options);
+  console.log('get /authorize - options =>', options);
   request(options, (err, response, body) => {
     req.session.access_token = body.access_token;
-    // console.log('body => ', body);
-    res.redirect('/blog')
+    console.log('body => ', body);
+    res.redirect('/blog/me')
   })
 })
 
@@ -59,7 +61,5 @@ router.get('/logout', (req, res) => {
 // ++++++++++++++++++ OAUTH ROUTING ENDS ++++++++++++++++++ //
 // ++++++++++++++++++                    ++++++++++++++++++ //
 
+
 module.exports = router;
-
-
-
