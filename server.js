@@ -26,24 +26,26 @@ app.use(require('./routes/error'))
 const User = require('./models/user.js');
 
 const user2 = new User({
-  username: 'bkmorgan65',
-  posts: [{created: Date (),
+  username: 'bklklklk',
+  posts: [{created:  ('05-03-2018'),
            title: 'i li',
            content: 'holllla son!',
-           likes: 7
+           // likes: 7
          }]
 })
 user2.save();
 console.log('user2 now =  ',user2);
 
 
-// const user4 = new User({
-//   username: 'Dakotah',
-//   posts: [{title: 'Im here to code',
-//           content: 'This is my post its reallly cool'}]
-// })
-// user4.save();
-// console.log('user4 =', user4);
+const user4 = new User({
+  username: 'sdsjk',
+  posts: [{created: Date(),
+           title: 'Im here to code',
+           content: 'This is my post its reallly cool'
+        }]
+})
+user4.save();
+console.log('user4 =', user4);
 
 
 
