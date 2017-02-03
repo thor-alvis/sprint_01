@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h1>Aloha, <span id="username">{{user.login}}</span>!</h1>
+      <div><img src='{{user.avatar_url}}'></div>
+      <a href='/logout'>Logout</a>
+      <h1>new post</h1>
+    </div>
+  </div>
+  <div class="row">
+    <input class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="title" placeholder="Title">
+  </div>
+  <div class="row">
+    <textarea class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="newPost" placeholder="New Post!"></textarea>
+  </div>
+  <div class="row">
+    <button class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="publish">publish</button>
+  <div>
+  <div class="row">
+    <div id="allPosts"></div>
+  </div>
+</div>
