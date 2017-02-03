@@ -7,18 +7,18 @@ console.log('Kris was here...');
 // })
 
 
-const $publishBtn = $('#publish');
-const $newPost = $('#newPost').val();
+// const $publishBtn = $('#publish');
+// const $newPost = $('#newPost').val();
 
 
-$publishBtn.on('click', event => {
-  var data = {
-    username: username,
-    avatar: avatar,
-    post: $newPost
+// $publishBtn.on('click', event => {
+//   var data = {
+//     username: username,
+//     avatar: avatar,
+//     post: $newPost
 
-  }
-  $.post('/blog', {data: data}, response => {
+//   }
+//   $.post('/blog', {data: data}, response => {
 
-  })
-})
+//   })
+// })
