@@ -48,10 +48,33 @@ router.get('/authorize', (req, res, next) => {
   request(options, (err, response, body) => {
     req.session.access_token = body.access_token;
     console.log('body => ', body);
-    res.redirect('/blog/me')
+    res.redirect('/auth/me')
   })
 })
-  
+
+router.get('/auth/me', (req, res, next) => {
+  const access_token = req.session.access_token;
+  console.log('token is getting passed from /me', access_token);
+  const url = 'https://api.github.com/user'
+  const options = {
+    method: 'GET',
+    url: url,
+    headers: {
+      'Authorization' : `token ${access_token}`,
+      'User-Agent' : 'thor-alvis',
+    }
+  }
+  request(options, (err, response, body) => {
+    const user = JSON.parse(body);
+    req.session.user = user
+    username = user.login
+    console.log('+++++USERNAME =====>', username)
+    const blogId = `/blog/${username}`
+    return res.redirect(blogId)
+  })
+>>>>>>> 589354f6423e7f8e723e4df50f9d9a19eb573109
+})
+
   // show all blogs
 router.get('/blogs', (req, res) => {
   res.render('index');
