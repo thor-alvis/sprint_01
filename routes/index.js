@@ -19,6 +19,7 @@ router.post('/blogs', (req,res) => {
   var item = {
           username: username,
           posts: {
+            date: Date(),
             title: title,
             content: content
            }
